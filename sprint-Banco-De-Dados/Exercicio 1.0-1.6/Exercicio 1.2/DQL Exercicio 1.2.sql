@@ -1,0 +1,19 @@
+SELECT NomeCliente, NomeModelo, DataDeInicio, DataDeTermino
+FROM ALUGUEL
+INNER JOIN CLIENTE
+ON ALUGUEL.IdCliente = CLIENTE.IdCliente
+INNER JOIN VEICULO
+ON ALUGUEL.IdVeiculo = VEICULO.IdVeiculo
+INNER JOIN MODELO
+ON MODELO.IdModelo = VEICULO.IdModelo
+
+
+SELECT NomeCliente, DataDeInicio, DataDeTermino, NomeModelo 
+FROM ALUGUEL
+INNER JOIN CLIENTE
+ON ALUGUEL.IdCliente = CLIENTE.IdCliente
+INNER JOIN VEICULO
+ON ALUGUEL.IdVeiculo = VEICULO.IdVeiculo
+INNER JOIN MODELO
+ON MODELO.IdModelo = VEICULO.IdModelo
+WHERE CLIENTE.NomeCliente = 'Joaozinho';

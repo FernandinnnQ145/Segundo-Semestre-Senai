@@ -32,4 +32,6 @@ VALUES(3,2,'Endrick'), (2,1, 'Gomez')
 
 
 INSERT INTO ATENDIMENTO(IdVeterinario, IdPet, Horario_Atendimento)
-VALUES(2, 5, '050820021 10.30H'),(1, 6, '06082021 10H');
+VALUES(2, 2, '10.30H'),(1, 1, '10H');
+
+

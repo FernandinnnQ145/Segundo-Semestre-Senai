@@ -27,3 +27,5 @@ Nome DESC
 INSERT INTO Pessoa(Nome, CNH)
 Values('Cicinho', '43'), ('Marcos', '21'), ('MarcosAssuncao', '54');
 
+SELECT * FROM Pessoa
+

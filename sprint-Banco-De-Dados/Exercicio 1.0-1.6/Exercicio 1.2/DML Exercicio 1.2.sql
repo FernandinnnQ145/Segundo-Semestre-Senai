@@ -28,5 +28,5 @@ VALUES(2, 1,2213),(1,2,45678),(1,1,4545),(2,3,6873);
 
 
 
-INSERT INTO ALUGUEL(IdVeiculo, IdCliente, Descricao)
-VALUES(2, 2, '12.12.21 A 15.12.21'),(3,1, '15.02.21 A 16.02.21');
+INSERT INTO ALUGUEL(IdVeiculo, IdCliente, DataDeInicio, DataDeTermino)
+VALUES(2, 2, '1/4/23',  '31/10/24'), (1, 1, '21/7/23', '21/8/24')
