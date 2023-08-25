@@ -19,11 +19,29 @@ namespace webapi.filme.Repositories
             /// </summary>
             private string StringConexao = "Data Source = NOTE22-S15; Initial Catalog = Filmes_tarde; User Id = sa; Pwd = Senai@134";
 
-            public void AtualizarIdCorpo(GeneroDomain genero)
+        public void AtualizarIdCorpo(GeneroDomain genero)
+        {
+            //Declara a SqlConnection passando a string de conexao como parametro
+            using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                throw new NotImplementedException();
-            }
+                con.Open();
 
+                //Declara a query que sera executada nesse caso de insercao
+                string queryUpdate = "UPDATE Genero SET Nome = @NomeNovo WHERE IdGenero";
+
+                //Declara o SqlCommand passando a query que sera executada e a conexao com o bd
+                using (SqlCommand cmd = new SqlCommand(queryUpdate, con))
+                {
+
+                    cmd.Parameters.AddWithValue("@NomeNovo", genero.Nome);
+                    //Executa a query
+                    cmd.ExecuteNonQuery();
+
+
+                }
+
+            }
+        }
             public void AtualizarIdUrl(int id, GeneroDomain genero)
             {
                 throw new NotImplementedException();
@@ -45,12 +63,15 @@ namespace webapi.filme.Repositories
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 //Declara a query que sera executada nesse caso de insercao
-                string queryInsert = "INSERT INTO Genero(Nome) VALUES(' " + NovoGenero.Nome + " ')";
+                string queryInsert = "INSERT INTO Genero(Nome) VALUES(@Nome)";
 
                 
                 //Declara o SqlCommand passando a query que sera executada e a conexao com o bd
                 using (SqlCommand cmd = new SqlCommand(queryInsert, con))
                 {
+
+                    cmd.Parameters.AddWithValue("@Nome", NovoGenero.Nome);
+
                     //Abre a conexao com o banco de dados
                     con.Open();
                     
@@ -62,9 +83,27 @@ namespace webapi.filme.Repositories
 
             }
 
+        /// <summary>
+        /// Deletar o genero desejado
+        /// </summary>
+        /// <param name="id"></param>
             public void Deletar(int id)
             {
-                throw new NotImplementedException();
+            //Declara a SqlConnection passando a string de conexao como parametro
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                con.Open();
+                //Declara a query que sera executada nesse caso de insercao
+                string queryDelete = "DELETE FROM Genero WHERE IdGenero = @IdGenero";
+
+                //Declara o SqlCommand passando a query que sera executada e a conexao com o bd
+                using (SqlCommand cmd = new SqlCommand(queryDelete, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdGenero", id);
+                    cmd.ExecuteNonQuery();
+                }
+
+            }
             }
 
 

@@ -59,6 +59,11 @@ namespace webapi.filme.Controllers
 
           
         }
+
+        /// <summary>
+        /// Endpoint que acessa o metodo de cadastrar os generos
+        /// </summary>
+        /// <returns>Cadastra um generos em um status code</returns>
         [HttpPost]
         public IActionResult Post(GeneroDomain novoGenero)
         {
@@ -73,6 +78,24 @@ namespace webapi.filme.Controllers
             catch (Exception erro)
             {
                 
+                return BadRequest(erro.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+
+                _generoRepository.Deletar(id);
+
+                return StatusCode(204);
+
+            }
+            catch (Exception erro)
+            {
+
                 return BadRequest(erro.Message);
             }
         }

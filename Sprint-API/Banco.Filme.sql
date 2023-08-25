@@ -18,10 +18,12 @@ INSERT INTO Genero (Nome) VALUES ('Ação');
 INSERT INTO Genero (Nome) VALUES ('Comédia');
 INSERT INTO Genero (Nome) VALUES ('Drama');
 INSERT INTO Genero (Nome) VALUES ('Ficção Científica');
-
+INSERT INTO Genero (Nome) VALUES ('Joana D');
 
 INSERT INTO Filme (IdGenero, Titulo) VALUES (1, 'Vingadores: Ultimato');
 INSERT INTO Filme (IdGenero, Titulo) VALUES (1, 'Mad Max: Estrada da Fúria');
 INSERT INTO Filme (IdGenero, Titulo) VALUES (2, 'Superbad');
 INSERT INTO Filme (IdGenero, Titulo) VALUES (3, 'O Poderoso Chefão');
 INSERT INTO Filme (IdGenero, Titulo) VALUES (4, 'Blade Runner 2049');
+
+SELECT * FROM  Filme

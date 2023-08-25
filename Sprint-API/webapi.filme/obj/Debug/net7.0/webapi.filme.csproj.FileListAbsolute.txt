@@ -31,3 +31,10 @@ C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-API\webapi.filme\obj\
 C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-API\webapi.filme\obj\Debug\net7.0\webapi.filme.pdb
 C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-API\webapi.filme\obj\Debug\net7.0\webapi.filme.genruntimeconfig.cache
 C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-API\webapi.filme\obj\Debug\net7.0\ref\webapi.filme.dll
+C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-API\webapi.filme\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-API\webapi.filme\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-API\webapi.filme\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-API\webapi.filme\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-API\webapi.filme\obj\Debug\net7.0\webapi.filme.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-API\webapi.filme\bin\Debug\net7.0\webapi.filme.xml
+C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-API\webapi.filme\obj\Debug\net7.0\webapi.filme.xml
