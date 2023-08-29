@@ -20,7 +20,7 @@ namespace webapi.filme.Interfaces
 
         void AtualizarIdCorpo(FilmeDomain filme);
 
-        void AtualizarIdUrl(int idn, FilmeDomain filme);
+        void AtualizarIdUrl(int id, FilmeDomain filme);
 
         void Deletar(int id);
     }

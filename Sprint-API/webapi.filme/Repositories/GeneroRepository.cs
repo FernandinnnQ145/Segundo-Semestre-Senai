@@ -27,13 +27,14 @@ namespace webapi.filme.Repositories
                 con.Open();
 
                 //Declara a query que sera executada nesse caso de insercao
-                string queryUpdate = "UPDATE Genero SET Nome = @NomeNovo WHERE IdGenero";
+                string queryUpdate = "UPDATE Genero SET Nome = @NomeNovo WHERE IdGenero = @IdGenero";
 
                 //Declara o SqlCommand passando a query que sera executada e a conexao com o bd
                 using (SqlCommand cmd = new SqlCommand(queryUpdate, con))
                 {
 
                     cmd.Parameters.AddWithValue("@NomeNovo", genero.Nome);
+                    cmd.Parameters.AddWithValue("@IdGenero", genero.IdGenero);
                     //Executa a query
                     cmd.ExecuteNonQuery();
 
@@ -44,12 +45,63 @@ namespace webapi.filme.Repositories
         }
             public void AtualizarIdUrl(int id, GeneroDomain genero)
             {
-                throw new NotImplementedException();
+            //Declara a SqlConnection passando a string de conexao como parametro
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                con.Open();
+                //Declara a query que sera executada nesse caso de insercao
+         
+                string queryUpdate = "UPDATE Genero SET Nome = @Nome WHERE IdGenero = @IdGenero";
+
+                using (SqlCommand cmd = new SqlCommand(queryUpdate, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdGenero", id);
+                    cmd.Parameters.AddWithValue("@Nome", genero.Nome);
+                    //Executa a query
+                    cmd.ExecuteNonQuery();
+                }
+            }
             }
 
             public GeneroDomain BuscarPorId(int id)
             {
-                throw new NotImplementedException();
+            //Declara a SqlConnection passando a string de conexao como parametro
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                con.Open();
+
+                //Declara a query que sera executada nesse caso de insercao
+                string querySelect = "SELECT IdGenero, Nome FROM Genero WHERE IdGenero = @IdGenero";
+
+                
+                //Declara o SqlCommand passando a query que sera executada e a conexao com o bd
+                using (SqlCommand cmd = new SqlCommand(querySelect, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdGenero", id);
+                    //Declara o SqlDataReader para percorrer(ler) no banco de dados
+                    SqlDataReader rdr;
+                    //Esse comando executa a query e armazena os dados no rdr
+                    rdr = cmd.ExecuteReader();
+                    
+                    if (rdr.Read())
+                    {
+                        GeneroDomain genero = new GeneroDomain()
+                        {
+                            IdGenero = Convert.ToInt32(rdr[0]),
+                            Nome = Convert.ToString(rdr["Nome"])
+                        };
+                        return genero;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+
+                }
+
+
+
+            }
             }
 
 

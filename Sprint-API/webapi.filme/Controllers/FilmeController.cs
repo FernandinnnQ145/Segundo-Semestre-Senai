@@ -6,40 +6,31 @@ using webapi.filme.Repositories;
 
 namespace webapi.filme.Controllers
 {
-    /// <summary>
-    /// Define que a rota de uma requisicao sera no seguinte formato
-    /// dominio/api/nomeController
-    /// exemplo http://localhost:5000/api/genero
-    /// </summary>
     [Route("api/[controller]")]
-
-    /// <summary>
-    /// Define que e um controlador de api
-    /// </summary>
     [ApiController]
+
 
     /// <summary>
     /// Define que o tipo de resposta da API e JSON
     /// </summary>
     [Produces("application/json")]
-    public class GeneroController : ControllerBase
+
+
+    public class FilmeController : ControllerBase
     {
-        /// <summary>
-        /// Objeto ira receber os metodos definidos na interface
-        /// </summary>
-        private IGeneroRepository _generoRepository { get; set; }
+        private IFilmeRepository _filmeRepository { get; set; }
 
         /// <summary>
         /// Instancia do objeto _generoRepository para que haja referencia aos metodos do repositorio
         /// </summary>
-        public GeneroController()
+        public FilmeController()
         {
-            _generoRepository = new GeneroRepository();
+            _filmeRepository = new FilmeReposiroy();
         }
 
 
         /// <summary>
-        /// Endpoint que acessa o metodo de listar os generos
+        /// Endpoint que acessa o metodo de listar os filmes
         /// </summary>
         /// <returns>Lista de generos em um status code</returns>
         [HttpGet]
@@ -47,9 +38,9 @@ namespace webapi.filme.Controllers
         {
             try
             {
-                List<GeneroDomain> listaGeneros = _generoRepository.ListarTodos();
+                List<FilmeDomain> listaFilmes = _filmeRepository.ListarTodos();
 
-                return Ok(listaGeneros);
+                return Ok(listaFilmes);
             }
             catch (Exception erro)
             {
@@ -57,35 +48,35 @@ namespace webapi.filme.Controllers
                 return BadRequest(erro.Message);
             }
 
-          
+
         }
+
 
         /// <summary>
         /// Endpoint que acessa o metodo de cadastrar os generos
         /// </summary>
         /// <returns>Cadastra um generos em um status code</returns>
         [HttpPost]
-        public IActionResult Post(GeneroDomain novoGenero)
+        public IActionResult Post(FilmeDomain NovoFilme)
         {
             try
             {
-                
-                _generoRepository.Cadastrar(novoGenero);
-                
+
+                _filmeRepository.Cadastrar(NovoFilme);
+
                 return StatusCode(201);
 
             }
             catch (Exception erro)
             {
-                
+
                 return BadRequest(erro.Message);
             }
         }
 
 
-
         /// <summary>
-        /// Endpoint que acessa o metodo de deletar os generos
+        /// Endpoint que acessa o metodo de deletar os filmes
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -95,7 +86,7 @@ namespace webapi.filme.Controllers
             try
             {
 
-                _generoRepository.Deletar(id);
+                _filmeRepository.Deletar(id);
 
                 return StatusCode(204);
 
@@ -106,23 +97,20 @@ namespace webapi.filme.Controllers
                 return BadRequest(erro.Message);
             }
         }
-
-
-
 
 
         /// <summary>
         /// Endpoit que acessa o metodo de atualizar o genero passando o Id pelo corpo da requisição.
         /// </summary>
-        /// <param name="genero"></param>
+        /// <param name="filme"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public IActionResult Put(GeneroDomain genero)
+        public IActionResult Put(FilmeDomain filme)
         {
             try
             {
 
-                _generoRepository.AtualizarIdCorpo(genero);
+                _filmeRepository.AtualizarIdCorpo(filme);
 
                 return StatusCode(204);
 
@@ -133,6 +121,25 @@ namespace webapi.filme.Controllers
                 return BadRequest(erro.Message);
             }
         }
+
+        [HttpPut]
+        public IActionResult PutUrl(int id, FilmeDomain filme)
+        {
+            try
+            {
+
+                _filmeRepository.AtualizarIdUrl(id, filme);
+
+                return StatusCode(204);
+
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro.Message);
+            }
+        }
+
 
 
         /// <summary>
@@ -145,19 +152,19 @@ namespace webapi.filme.Controllers
         {
             try
             {
-                GeneroDomain generoEncontrado = _generoRepository.BuscarPorId(id);
+                FilmeDomain filmeEncontrado = _filmeRepository.BuscarPorId(id);
 
-                if(generoEncontrado == null)
+                if (filmeEncontrado == null)
                 {
-                    return NotFound("O genero buscado nao foi encontrado");
+                    return NotFound("O Filme buscado nao foi encontrado");
                 }
 
                 else
                 {
-                    return Ok(generoEncontrado);
+                    return Ok(filmeEncontrado);
                 }
-                
-               
+
+
             }
             catch (Exception erro)
             {
@@ -169,25 +176,15 @@ namespace webapi.filme.Controllers
 
 
 
-        [HttpPut]
-        public IActionResult PutUrl(int id, GeneroDomain genero)
-        {
-            try
-            {
 
-                _generoRepository.AtualizarIdUrl(id, genero);
 
-                return StatusCode(204);
 
-            }
-            catch (Exception erro)
-            {
-
-                return BadRequest(erro.Message);
-            }
-        }
 
 
 
     }
+
+
+
+
 }

@@ -4,6 +4,44 @@
         <name>webapi.filme</name>
     </assembly>
     <members>
+        <member name="M:webapi.filme.Controllers.FilmeController.#ctor">
+            <summary>
+            Instancia do objeto _generoRepository para que haja referencia aos metodos do repositorio
+            </summary>
+        </member>
+        <member name="M:webapi.filme.Controllers.FilmeController.Get">
+            <summary>
+            Endpoint que acessa o metodo de listar os filmes
+            </summary>
+            <returns>Lista de generos em um status code</returns>
+        </member>
+        <member name="M:webapi.filme.Controllers.FilmeController.Post(webapi.filme.Domains.FilmeDomain)">
+            <summary>
+            Endpoint que acessa o metodo de cadastrar os generos
+            </summary>
+            <returns>Cadastra um generos em um status code</returns>
+        </member>
+        <member name="M:webapi.filme.Controllers.FilmeController.Delete(System.Int32)">
+            <summary>
+            Endpoint que acessa o metodo de deletar os filmes
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.filme.Controllers.FilmeController.Put(webapi.filme.Domains.FilmeDomain)">
+            <summary>
+            Endpoit que acessa o metodo de atualizar o genero passando o Id pelo corpo da requisição.
+            </summary>
+            <param name="filme"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.filme.Controllers.FilmeController.Get(System.Int32)">
+            <summary>
+            Endpoint que acessa o metodo de buscar por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:webapi.filme.Controllers.GeneroController">
             <summary>
             Define que a rota de uma requisicao sera no seguinte formato
@@ -32,6 +70,27 @@
             Endpoint que acessa o metodo de cadastrar os generos
             </summary>
             <returns>Cadastra um generos em um status code</returns>
+        </member>
+        <member name="M:webapi.filme.Controllers.GeneroController.Delete(System.Int32)">
+            <summary>
+            Endpoint que acessa o metodo de deletar os generos
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.filme.Controllers.GeneroController.Put(webapi.filme.Domains.GeneroDomain)">
+            <summary>
+            Endpoit que acessa o metodo de atualizar o genero passando o Id pelo corpo da requisição.
+            </summary>
+            <param name="genero"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.filme.Controllers.GeneroController.Get(System.Int32)">
+            <summary>
+            Endpoint que acessa o metodo de buscar por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
         <member name="T:webapi.filme.Domains.FilmeDomain">
             <summary>
@@ -98,6 +157,16 @@
             Método responsável por deletar um gênero existente.
             </summary>
             <param name="id">Id do objeto a ser deletado.</param>
+        </member>
+        <member name="F:webapi.filme.Repositories.FilmeReposiroy.StringConexao">
+            <summary>
+            String de conexao com o banco de dados  que recebe os seguintes parametros
+            Data Source: Nome do servidor
+            Initial Catalog Nome do banco de dados
+            Autenticacao
+            -Windows : Integrated Security = true
+            -SqlServer : User Id = sa; Pwd = Senha
+            </summary>
         </member>
         <member name="F:webapi.filme.Repositories.GeneroRepository.StringConexao">
             <summary>
