@@ -8,6 +8,6 @@ namespace senai.inlock.webApi.Domains
 
         
         [Required(ErrorMessage = "O nome do estudio é obrigatório!")]
-        public string? Estudio { get; set; }
+        public string? Nome { get; set; }
     }
 }

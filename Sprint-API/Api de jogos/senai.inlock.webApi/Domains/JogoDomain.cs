@@ -4,19 +4,22 @@ namespace senai.inlock.webApi.Domains
 {
     public class JogoDomain
     {
-        public int IdFilme { get; set; }
+        public int IdJogo { get; set; }
 
 
-        [Required(ErrorMessage = "O título do filme é obrigatório!")]
-        public string? Titulo { get; set; }
+        [Required(ErrorMessage = "O nome do jogo é obrigatório!")]
+        public string? Nome { get; set; }
 
         public int IdEstudio { get; set; }
 
-        public int IdTipoUsuario { get; set; }
+        public float Valor { get; set; }
 
-        
+        public string Descricao { get; set; }
+
+        public string DataLancamento { get; set; }
+
         public EstudioDomain Estudio { get; set; }
 
-        public TipoDeUsuarioDomain NomeTipoUsuario  { get; set; }
+       
     }
 }
