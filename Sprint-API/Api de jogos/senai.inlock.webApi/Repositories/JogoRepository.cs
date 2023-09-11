@@ -95,8 +95,8 @@ namespace senai.inlock.webApi.Repositories
 
                             Estudio = new EstudioDomain()
                             {
-                                IdEstudio = Convert.ToInt32(rdr["IdEstudio"]),
-                                Nome = Convert.ToString(rdr["Nome"]),
+                                IdEstudio = Convert.ToInt32(rdr[5]),
+                                Nome = Convert.ToString(rdr[6]),
                             }
                             
 

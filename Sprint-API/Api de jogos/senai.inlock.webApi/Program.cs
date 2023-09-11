@@ -13,37 +13,35 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = "JwtBearer";
     options.DefaultAuthenticateScheme = "JwtBearer";
 
-});
+})
 
-/*
 //Define os parametros de validacao do token
 .AddJwtBearer("JwtBearer", options =>
 {
-options.TokenValidationParameters = new TokenValidationParameters
-{
-    //Valida quem esta solicitando
-    ValidateIssuer = true,
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        //Valida quem esta solicitando
+        ValidateIssuer = true,
 
-    //Valida quem esta recebendo
-    ValidateAudience = true,
+        //Valida quem esta recebendo
+        ValidateAudience = true,
 
-    //Define se o tempo de expiracao do token sera validado
-    ValidateLifetime = true,
+        //Define se o tempo de expiracao do token sera validado
+        ValidateLifetime = true,
 
-    //Forma de criptografia e ainda validacao da chave de autenticacao
-    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("")),
+        //Forma de criptografia e ainda validacao da chave de autenticacao
+        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("jogos-chave-autenticacao-webapi-dev")),
 
-    //Valida o tempo de expiracao do token 
-    ClockSkew = TimeSpan.FromMinutes(5),
+        //Valida o tempo de expiracao do token 
+        ClockSkew = TimeSpan.FromMinutes(5),
 
-    //De onde esta vindo (issuer)
-    ValidIssuer = "",
+        //De onde esta vindo (issuer)
+        ValidIssuer = "Webapi.jogo",
 
-    //Para onde esta indo (audience)
-    ValidAudience = ""
-};
+        //Para onde esta indo (audience)
+        ValidAudience = "Webapi.jogo"
+    };
 });
-*/
 
 //Adiciona o gerador do swagger
 builder.Services.AddSwaggerGen(options =>
@@ -51,8 +49,8 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
-        Title = "API Jogos",
-        Description = "API para gerenciamento de jogos - sprint 2 API",
+        Title = "API Filme",
+        Description = "API para gerenciamento de jogo - inicio sprint 2 API",
         Contact = new OpenApiContact
         {
             Name = "Fernando",
@@ -61,12 +59,10 @@ builder.Services.AddSwaggerGen(options =>
     });
 
     //Configura o swagger para utilizar um arquivo XML gerado
-    /*
-    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
-    */
+   // var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    //options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 
-    /*
+
     //Usando a autenticacao do swagger
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     {
@@ -77,7 +73,6 @@ builder.Services.AddSwaggerGen(options =>
         In = ParameterLocation.Header,
         Description = "Value: Bearer TokenJWT"
     });
-    */
 
     options.AddSecurityRequirement(new OpenApiSecurityRequirement()
     {
@@ -112,13 +107,12 @@ app.UseSwaggerUI(options =>
     options.RoutePrefix = string.Empty;
 });
 
-/*
 //Usar autenticao
 app.UseAuthentication();
 
 //Usar autorizacao
 app.UseAuthorization();
-*/
+
 
 //Mapear os controllers
 app.MapControllers();

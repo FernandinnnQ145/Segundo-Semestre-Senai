@@ -58,7 +58,7 @@ namespace senai.inlock.webApi.Repositories
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 //Declara a instrucao a ser executada
-                string querySelectAll = "SELECT IdEstudio, Nome FROM Estudio";
+                string querySelectAll = "SELECT Estudio.IdEstudio, Estudio.Nome, Jogo.Nome FROM Estudio LEFT JOIN Jogo ON Estudio.IdEstudio = Jogo.IdEstudio";
 
 
                
@@ -80,7 +80,8 @@ namespace senai.inlock.webApi.Repositories
                         EstudioDomain estudio = new EstudioDomain()
                         {
                             IdEstudio = Convert.ToInt32(rdr[0]),
-                            Nome = Convert.ToString(rdr["Nome"])
+                            Nome = Convert.ToString(rdr["Nome"]),
+                            
                         };
                         
                         listaEstudio.Add(estudio);

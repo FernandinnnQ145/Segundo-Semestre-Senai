@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai.inlock.webApi.Domains;
 using senai.inlock.webApi.Interfaces;
 using senai.inlock.webApi.Repositories;
+using System.Data;
 
 namespace senai.inlock.webApi.Controllers
 {
@@ -20,6 +22,7 @@ namespace senai.inlock.webApi.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "1,2")]
         public IActionResult Get()
         {
             try
@@ -36,6 +39,7 @@ namespace senai.inlock.webApi.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "2")]
         public IActionResult Post(JogoDomain NovoJogo)
         {
             try
@@ -54,6 +58,7 @@ namespace senai.inlock.webApi.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles = "2")]
         public IActionResult Delete(int id)
         {
             try

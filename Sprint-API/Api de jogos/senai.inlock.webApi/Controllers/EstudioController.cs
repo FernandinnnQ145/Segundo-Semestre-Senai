@@ -21,6 +21,7 @@ namespace senai.inlock.webApi.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "1,2")]
         public IActionResult Get()
         {
             try
@@ -39,6 +40,7 @@ namespace senai.inlock.webApi.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "2")]
         public IActionResult Post(EstudioDomain NovoEstudio)
         {
             try
@@ -57,6 +59,7 @@ namespace senai.inlock.webApi.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles = "2")]
         public IActionResult Delete(int id)
         {
             try

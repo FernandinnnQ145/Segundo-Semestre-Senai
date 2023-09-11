@@ -2,8 +2,8 @@
 
 namespace senai.inlock.webApi.Interfaces
 {
-    public interface ITipoDeUsuarioRepository
+    public interface ITipoUsuarioRepository
     {
-        List<EstudioDomain> ListarTodos();
+        List<TipoUsuarioDomain> ListarTodos();
     }
 }
