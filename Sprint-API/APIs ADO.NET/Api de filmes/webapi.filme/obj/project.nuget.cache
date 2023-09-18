@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ws1fzF+hAg9I1oTwrZbWw8liOhKYOTtBChjoU2gf+nC6IWOpq5soEzuY5W3qcS4P8iP97MbpMYfH16RVy/SFSQ==",
+  "dgSpecHash": "56r8brplhL3uuDnCmjW4LT2u3CsyazgAC48rALd67+ZgMf7Hu49kbRxs86DFlF64S0ISUaUiJrqAIfZf/7m+1w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\43869817801\\Desktop\\Segundo-Semestre-Senai\\Sprint-API\\Api de filmes\\webapi.filme\\webapi.filme.csproj",
+  "projectFilePath": "C:\\Users\\43869817801\\Desktop\\Segundo-Semestre-Senai\\Sprint-API\\APIs ADO.NET\\Api de filmes\\webapi.filme\\webapi.filme.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\43869817801\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.10\\microsoft.aspnetcore.authentication.jwtbearer.7.0.10.nupkg.sha512",
     "C:\\Users\\43869817801\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
