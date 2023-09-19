@@ -12,8 +12,8 @@ using webapi.event_.tarde.Contexts;
 namespace webapi.event_.tarde.Migrations
 {
     [DbContext(typeof(EventContext))]
-    [Migration("20230918201838_BD")]
-    partial class BD
+    [Migration("20230919173224_Bd")]
+    partial class Bd
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,7 +74,7 @@ namespace webapi.event_.tarde.Migrations
 
                     b.Property<string>("NomeEvento")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(100");
+                        .HasColumnType("VARCHAR(100)");
 
                     b.HasKey("IdEvento");
 

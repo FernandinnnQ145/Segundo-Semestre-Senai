@@ -71,7 +71,7 @@ namespace webapi.event_.tarde.Migrations
 
                     b.Property<string>("NomeEvento")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(100");
+                        .HasColumnType("VARCHAR(100)");
 
                     b.HasKey("IdEvento");
 

@@ -14,7 +14,7 @@ namespace webapi.event_.tarde.Domains
         [Required(ErrorMessage = "Data do evento obrigatoria")]
         public DateTime DataEvento { get; set; }
 
-        [Column(TypeName = "VARCHAR(100")]
+        [Column(TypeName = "VARCHAR(100)")]
         [Required(ErrorMessage = "Nome do evento obrigatoria")]
         public string? NomeEvento { get; set; }
 
