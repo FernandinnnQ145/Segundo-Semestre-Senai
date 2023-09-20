@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>webapi.event+.tarde</name>
+    </assembly>
+    <members>
+        <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.Get">
+            <summary>
+            EndPoint que acessa o metodo de listar as instituicoes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.Post(webapi.event_.tarde.Domains.Instituicao)">
+            <summary>
+            EndPoint que acessa o metodo de cadastrar uma nova instituicao
+            </summary>
+            <param name="instituicao"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.LoginController.Login(webapi.event_.tarde.ViewModels.LoginViewModel)">
+            <summary>
+            EndPoint que acessa o metodo para se logar gerando um token
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.Post(webapi.event_.tarde.Domains.TipoUsuario)">
+            <summary>
+            EndPoint que acessa o metodo de Cadastrar um novo tipo usuario
+            </summary>
+            <param name="tipoUsuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.Get">
+            <summary>
+            EndPoint que lista todos os tipos usuario
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.Delete(System.Guid,webapi.event_.tarde.Domains.TipoUsuario)">
+            <summary>
+            EndPoint que acessa o metodo para deletar o tipo de usuario desejado
+            </summary>
+            <param name="id"></param>
+            <param name="tipoUsuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.Put(System.Guid,webapi.event_.tarde.Domains.TipoUsuario)">
+            <summary>
+            EndPoint que acessa o metodo de atualizar
+            </summary>
+            <param name="id"></param>
+            <param name="tipoUsuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.UsuarioController.GetById(System.Guid)">
+            <summary>
+            EndPoint que acessa o metodo de Buscar por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.UsuarioController.Post(webapi.event_.tarde.Domains.Usuario)">
+            <summary>
+            EndPoint que acessa o metodo de Cadastrar um novo usuario
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="T:webapi.event_.tarde.Migrations.Bd">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.event_.tarde.Migrations.Bd.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.event_.tarde.Migrations.Bd.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.event_.tarde.Migrations.Bd.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.event_.tarde.Utils.Criptografia.GerarHash(System.String)">
+            <summary>
+            Gera uma Hash a partir de uma senha
+            </summary>
+            <param name="senha">Senha que recebera a hash</param>
+            <returns>Senha criptografada com a hash</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Utils.Criptografia.CompararHash(System.String,System.String)">
+            <summary>
+            Verifica se a hash da senha informada e igual a hash salva no bd
+            </summary>
+            <param name="senhaForm">Senha passa no form de login</param>
+            <param name="senhaBanco">Senha cadastrada no banco</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

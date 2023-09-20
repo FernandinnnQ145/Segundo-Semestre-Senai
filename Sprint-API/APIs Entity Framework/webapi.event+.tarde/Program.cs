@@ -1,5 +1,6 @@
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -55,6 +56,10 @@ builder.Services.AddSwaggerGen(options =>
             Url = new Uri("https://github.com/FernandinnnQ145")
         }
     });
+
+    //Configura o swagger para utilizar um arquivo XML gerado
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 
     //Usando a autenticacao do swagger
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()

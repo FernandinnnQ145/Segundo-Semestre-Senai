@@ -22,6 +22,11 @@ namespace webapi.event_.tarde.Controllers
             _usuarioRepository = new UsuarioRepository();
         }
 
+        /// <summary>
+        /// EndPoint que acessa o metodo para se logar gerando um token
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Login(LoginViewModel usuario)
         {
@@ -36,9 +41,10 @@ namespace webapi.event_.tarde.Controllers
                 var claims = new[]
            {
                     //Formato da Claim (tipo, valor)
-                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
                     new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email!),
-                   new Claim(ClaimTypes.Role, usuarioBuscado.IdTipoUsuairo.ToString()),
+                    new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado.Nome!),
+                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
+                   new Claim(ClaimTypes.Role, usuarioBuscado.TipoUsuario!.Titulo!),
 
 
 
