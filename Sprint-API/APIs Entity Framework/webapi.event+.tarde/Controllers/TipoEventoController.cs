@@ -9,25 +9,46 @@ namespace webapi.event_.tarde.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class TipoUsuarioController : ControllerBase
+    public class TipoEventoController : ControllerBase
     {
-        private ITipoUsuarioRepository _tipoUsuarioRepository { get; set; }
+        private ITipoEventoRepository _tipoEventoRepository;
 
-        public TipoUsuarioController() 
+        public TipoEventoController()
         {
-            _tipoUsuarioRepository = new TipoUsuarioRepository();
+            _tipoEventoRepository = new TipoEventoRepository();
         }
+
+
         /// <summary>
-        /// EndPoint que acessa o metodo de Cadastrar um novo tipo usuario
+        /// EndPoint que acessa o metodo de listar todos os tipos usuario
         /// </summary>
-        /// <param name="tipoUsuario"></param>
         /// <returns></returns>
-        [HttpPost]
-        public IActionResult Post(TipoUsuario tipoUsuario)
+        [HttpGet]
+        public IActionResult Get()
         {
             try
             {
-                _tipoUsuarioRepository.Cadastrar(tipoUsuario);
+                return Ok(_tipoEventoRepository.Listar());
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// EndPoint que acessa o metodo de cadastrar um novo tipo de evento
+        /// </summary>
+        /// <param name="tipoEvento"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult Post(TipoEvento tipoEvento)
+        {
+            try
+            {
+                _tipoEventoRepository.Cadastrar(tipoEvento);
 
                 return StatusCode(201);
             }
@@ -38,47 +59,30 @@ namespace webapi.event_.tarde.Controllers
             }
         }
 
-        /// <summary>
-        /// EndPoint que lista todos os tipos usuario
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public IActionResult Get()
-        {
-            try
-            {
-                return Ok(_tipoUsuarioRepository.Listar());
-            }
-            catch (Exception e)
-            {
 
-                return BadRequest(e.Message);
-            }
-        }
 
         /// <summary>
-        /// EndPoint que acessa o metodo para deletar o tipo de usuario desejado
+        /// EndPoint que acessa o metodo de deletar tipo evento
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="tipoUsuario"></param>
         /// <returns></returns>
         [HttpDelete]
         public IActionResult Delete(Guid id)
         {
             try
             {
-
-                TipoUsuario tipoUsuarioBuscado = _tipoUsuarioRepository.BuscarPorId(id);
-                if (tipoUsuarioBuscado == null)
+                TipoEvento tipoEventoBuscado = _tipoEventoRepository.BuscarPorId(id);
+                if (tipoEventoBuscado == null)
                 {
-                    return NotFound("Tipo usuario nao encontrado");
+                    return NotFound("Tipo evento nao encontrado");
                 }
 
-                _tipoUsuarioRepository.Deletar(id);
 
-                    return NoContent();
-                
-               
+                _tipoEventoRepository.Deletar(id);
+
+                return NoContent();
+
+
 
 
             }
@@ -89,25 +93,27 @@ namespace webapi.event_.tarde.Controllers
             }
         }
 
+
+
         /// <summary>
-        /// EndPoint que acessa o metodo de atualizar tipo usuario
+        /// EndPoint que acessa o metodo de atualizar tipo evento
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="tipoUsuario"></param>
+        /// <param name="tipoEvento"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public IActionResult Put(Guid id, TipoUsuario tipoUsuario)
+        public IActionResult Put(Guid id, TipoEvento tipoEvento)
         {
             try
             {
-                TipoUsuario tipoUsuarioBuscado = _tipoUsuarioRepository.BuscarPorId(id);
+                TipoEvento tipoEventoBuscado = _tipoEventoRepository.BuscarPorId(id);
 
-                if(tipoUsuarioBuscado == null)
+                if (tipoEventoBuscado == null)
                 {
-                    return NotFound("Tipo usuario nao encontrado");
+                    return NotFound("Tipo evento nao encontrado");
                 }
 
-                _tipoUsuarioRepository.Atualizar(id, tipoUsuario);
+                _tipoEventoRepository.Atualizar(id, tipoEvento);
                 return NoContent();
             }
             catch (Exception e)
@@ -116,11 +122,11 @@ namespace webapi.event_.tarde.Controllers
 
             }
         }
-        
+
 
 
         /// <summary>
-        /// EndPoint que acessa o metodo de buscar por id
+        /// EndPoint que acessa o metodo de buscar por id de tipo evento
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -129,7 +135,7 @@ namespace webapi.event_.tarde.Controllers
         {
             try
             {
-                return Ok(_tipoUsuarioRepository.BuscarPorId(id));
+                return Ok(_tipoEventoRepository.BuscarPorId(id));
             }
             catch (Exception e)
             {

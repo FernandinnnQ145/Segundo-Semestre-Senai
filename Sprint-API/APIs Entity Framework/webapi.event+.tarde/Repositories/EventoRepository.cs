@@ -1,4 +1,5 @@
-﻿using webapi.event_.tarde.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using webapi.event_.tarde.Contexts;
 using webapi.event_.tarde.Domains;
 using webapi.event_.tarde.Interfaces;
 
@@ -12,14 +13,24 @@ namespace webapi.event_.tarde.Repositories
         {
             _eventContext = new EventContext();
         }
+
         public void Atualizar(Guid id, Evento evento)
         {
-            throw new NotImplementedException();
+            Evento eventoBuscado = _eventContext.Evento.Find(id)!;
+
+            if (evento != null)
+            {
+                eventoBuscado!.NomeEvento = evento.NomeEvento;
+            }
+
+            _eventContext.Evento.Update(eventoBuscado);
+            _eventContext.SaveChanges(); ;
         }
 
-        public TipoUsuario BuscarPorId(Guid id)
+        public Evento BuscarPorId(Guid id)
         {
-            throw new NotImplementedException();
+            Evento evento = _eventContext.Evento.Include(e => e.TipoEvento).Include(e => e.Instituicao).FirstOrDefault(u => u.IdEvento == id);
+            return evento;
         }
 
         public void Cadastrar(Evento evento)
@@ -39,12 +50,20 @@ namespace webapi.event_.tarde.Repositories
 
         public void Deletar(Guid id)
         {
-            throw new NotImplementedException();
+            Evento eventoBuscado = _eventContext.Evento.Find(id)!;
+            if (eventoBuscado != null)
+            {
+                _eventContext.Evento.Remove(eventoBuscado);
+            }
+            _eventContext.SaveChanges();
         }
 
         public List<Evento> Listar()
         {
-            return _eventContext.Evento.ToList();
+            
+            List<Evento> evento = _eventContext.Evento.Include(e => e.TipoEvento).Include(e => e.Instituicao).ToList();
+
+            return evento;
         }
     }
 }
