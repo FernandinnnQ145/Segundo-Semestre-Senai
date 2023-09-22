@@ -17,6 +17,20 @@
             <param name="comentarioEvento"></param>
             <returns></returns>
         </member>
+        <member name="M:webapi.event_.tarde.Controllers.ComentarioEventoController.Delete(System.Guid)">
+            <summary>
+            EndPoint que acessa o metodo de deletar comentario evento
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.ComentarioEventoController.GetById(System.Guid)">
+            <summary>
+            EndPoint que acessa o metodo de buscar por id do comentario
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:webapi.event_.tarde.Controllers.EventoController.Get">
             <summary>
             EndPoint que acessa o metodo de listas todos os eventos
@@ -70,6 +84,41 @@
             EndPoint que acessa o metodo para se logar gerando um token
             </summary>
             <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaEventoController.Get">
+            <summary>
+            EndPoint que acessa o metodo de listas todas as presencas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaEventoController.Post(webapi.event_.tarde.Domains.PresencaEvento)">
+            <summary>
+            EndPoint que acessa o metodo de cadastrar nova presenca
+            </summary>
+            <param name="presencaEvento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaEventoController.Delete(System.Guid)">
+            <summary>
+            EndPoint que acessa o metodo de deletar presenca evento
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaEventoController.Put(System.Guid,webapi.event_.tarde.Domains.PresencaEvento)">
+            <summary>
+            EndPoint que acessa o metodo de atualizar prensenca eventos
+            </summary>
+            <param name="id"></param>
+            <param name="presencaEvento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaEventoController.GetById(System.Guid)">
+            <summary>
+            EndPoint que acessa o metodo de buscar por id de prensenca evento
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:webapi.event_.tarde.Controllers.TipoEventoController.Get">

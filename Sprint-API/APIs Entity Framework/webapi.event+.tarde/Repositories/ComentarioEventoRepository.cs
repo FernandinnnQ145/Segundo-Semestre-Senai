@@ -5,6 +5,7 @@ using webapi.event_.tarde.Interfaces;
 
 namespace webapi.event_.tarde.Repositories
 {
+
     public class ComentarioEventoRepository : IComentarioEventoRepository
     {
         private readonly EventContext _eventContext;
@@ -39,14 +40,14 @@ namespace webapi.event_.tarde.Repositories
             ComentarioEvento comentarioEventoBuscado = _eventContext.ComentarioEvento.Find(id)!;
             if (comentarioEventoBuscado != null)
             {
-                _eventContext.Evento.Remove(comentarioEventoBuscado);
+                _eventContext.ComentarioEvento.Remove(comentarioEventoBuscado);
             }
             _eventContext.SaveChanges();
         }
 
         public List<ComentarioEvento> Listar()
         {
-            List<ComentarioEvento> comentarioEvento = _eventContext.ComentarioEvento.Include(e => e.Evento).Include(e => e.Usuario).ToList();
+            List<ComentarioEvento> comentarioEvento = _eventContext.ComentarioEvento.ToList();
 
             return comentarioEvento;
         }

@@ -24,12 +24,12 @@ namespace webapi.event_.tarde.Repositories
             }
 
             _eventContext.Evento.Update(eventoBuscado);
-            _eventContext.SaveChanges(); ;
+            _eventContext.SaveChanges(); 
         }
 
         public Evento BuscarPorId(Guid id)
         {
-            Evento evento = _eventContext.Evento.Include(e => e.TipoEvento).Include(e => e.Instituicao).FirstOrDefault(u => u.IdEvento == id);
+            Evento evento = _eventContext.Evento.FirstOrDefault(u => u.IdEvento == id);
             return evento;
         }
 
@@ -61,7 +61,7 @@ namespace webapi.event_.tarde.Repositories
         public List<Evento> Listar()
         {
             
-            List<Evento> evento = _eventContext.Evento.Include(e => e.TipoEvento).Include(e => e.Instituicao).ToList();
+            List<Evento> evento = _eventContext.Evento.ToList();
 
             return evento;
         }
