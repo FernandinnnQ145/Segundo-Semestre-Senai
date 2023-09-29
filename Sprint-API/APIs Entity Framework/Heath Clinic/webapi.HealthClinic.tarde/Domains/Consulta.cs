@@ -12,28 +12,33 @@ namespace webapi.HealthClinic.tarde.Domains
 
 
         [Column(TypeName = "DATE")]
-        [Required(ErrorMessage = "A data da consulta é obrigatória")]
-        public DateOnly DataConsulta { get; set; }
+        [Required(ErrorMessage = "A data da consulta é necessária")]
+        public DateTime? Data { get; set; }
 
         [Column(TypeName = "TIME")]
-        [Required(ErrorMessage = "O horário da consulta é obrigatório")]
-        public TimeOnly HoraConsulta { get; set; }
+        [Required(ErrorMessage = "O horário da consulta é necessário")]
+        public TimeOnly? Hora { get; set; }
 
 
+        //ref.Tabela Paciente
+        [Required(ErrorMessage = "O id do paciente é obrigatório !")]
+        public Guid IdPaciente { get; set; }
 
-        //ref.Tabela Medico
-        [Required(ErrorMessage = "O ID do medico é obrigatório")]
+        [ForeignKey(nameof(IdPaciente))]
+        public Paciente? Paciente { get; set; }
+
+
+        //Ref.Tabela Medico
+
+        [Required(ErrorMessage = "O id do médico é obrigatório !")]
         public Guid IdMedico { get; set; }
 
         [ForeignKey(nameof(IdMedico))]
         public Medico? Medico { get; set; }
 
 
-        //ref.Tabela Paciente
-        [Required(ErrorMessage = "O ID do paciente é obrigatório")]
-        public Guid IdPaciente { get; set; }
 
-        [ForeignKey(nameof(IdPaciente))]
-        public Paciente? Paciente { get; set; }
+
+
     }
 }

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace webapi.HealthClinic.tarde.Domains
 {
-    [Table(nameof(Clinica))]
+    [Table(nameof(Especialidade))]
     public class Especialidade
     {
         [Key]

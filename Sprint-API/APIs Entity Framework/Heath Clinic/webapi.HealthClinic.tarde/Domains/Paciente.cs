@@ -20,8 +20,8 @@ namespace webapi.HealthClinic.tarde.Domains
         public string? NomeConvenio { get; set; }
 
 
-        //ref.Tabela Usuario
-        [Required(ErrorMessage = "O ID do usuario é obrigatório")]
+        //Ref.Tabela Usuario
+        [Required(ErrorMessage = "O id do usuário é obrigatório !")]
         public Guid IdUsuario { get; set; }
 
         [ForeignKey(nameof(IdUsuario))]

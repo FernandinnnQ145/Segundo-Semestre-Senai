@@ -23,8 +23,8 @@ namespace webapi.HealthClinic.tarde.Domains
         public Consulta? Consulta { get; set; }
 
 
+        //Ref.Tabela Paciente 
 
-        //ref.Tabela Paciente
         [Required(ErrorMessage = "O id do paciente é obrigatório !")]
         public Guid IdPaciente { get; set; }
 

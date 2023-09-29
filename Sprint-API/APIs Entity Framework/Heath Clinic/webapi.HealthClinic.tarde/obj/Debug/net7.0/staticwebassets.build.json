@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "AeznQywsjB4M4KDMu2DxgAeZtOLJCJu7qy9B+uTlLEQ=",
+  "Source": "webapi.HealthClinic.tarde",
+  "BasePath": "_content/webapi.HealthClinic.tarde",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

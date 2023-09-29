@@ -15,8 +15,8 @@ namespace webapi.HealthClinic.tarde.Domains
         public string? Descricao { get; set; }
 
 
+        //Ref.Tabela Medico
 
-        //ref.Tabela Medico
         [Required(ErrorMessage = "O id do médico é obrigatório !")]
         public Guid IdMedico { get; set; }
 
@@ -24,7 +24,8 @@ namespace webapi.HealthClinic.tarde.Domains
         public Medico? Medico { get; set; }
 
 
-        //ref.Tabela Consulta
+        //Ref.Tabela Consulta
+
         [Required(ErrorMessage = "O id da consulta é obrigatório !")]
         public Guid IdConsulta { get; set; }
 
