@@ -9,26 +9,27 @@ namespace webapi.HealthClinic.tarde.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class TipoUsuarioController : ControllerBase
+    public class MedicoController : ControllerBase
     {
-        private ITipoUsuarioRepository _tipoUsuarioRepository;
+        private IMedicoRepository _medicoRepository;
 
-        public TipoUsuarioController()
+        public MedicoController()
         {
-            _tipoUsuarioRepository = new TipoUsuarioRepository();
+            _medicoRepository = new MedicoRepository();
         }
 
+
         /// <summary>
-        /// EndPoint que acessa o metodo de Cadastrar um novo tipo usuario
+        /// EndPoint que acessa o metodo de Cadastrar um novo medico 
         /// </summary>
-        /// <param name="tipoUsuario"></param>
+        /// <param name="medico"></param>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult Post(TipoUsuario tipoUsuario)
+        public IActionResult Post(Medico medico)
         {
             try
             {
-                _tipoUsuarioRepository.Cadastrar(tipoUsuario);
+                _medicoRepository.Cadastrar(medico);
 
                 return StatusCode(201);
             }
@@ -40,7 +41,7 @@ namespace webapi.HealthClinic.tarde.Controllers
         }
 
         /// <summary>
-        /// EndPoint que lista todos os tipos usuario
+        /// EndPoint que acessa o metodo de listar todos os medicos
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -48,7 +49,7 @@ namespace webapi.HealthClinic.tarde.Controllers
         {
             try
             {
-                return Ok(_tipoUsuarioRepository.Listar());
+                return Ok(_medicoRepository.Listar());
             }
             catch (Exception e)
             {
@@ -58,8 +59,7 @@ namespace webapi.HealthClinic.tarde.Controllers
         }
 
         /// <summary>
-        /// EndPoint que acessa o metodo de deletar o tipo usuario desejado
-        /// </summary>
+        /// EndPoint que acessa o metodo de deletar o medico desejado
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete]
@@ -70,7 +70,7 @@ namespace webapi.HealthClinic.tarde.Controllers
 
 
 
-                _tipoUsuarioRepository.Deletar(id);
+                _medicoRepository.Deletar(id);
 
                 return NoContent();
 
@@ -86,19 +86,19 @@ namespace webapi.HealthClinic.tarde.Controllers
         }
 
         /// <summary>
-        /// EndPoint que acessa o metodo de atualizar tipo usuario
+        /// EndPoint que acessa o metodo de atualizar medico
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="tipoUsuario"></param>
+        /// <param name="medico"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public IActionResult Put(Guid id, TipoUsuario tipoUsuario)
+        public IActionResult Put(Guid id, Medico medico)
         {
             try
             {
-                
 
-                _tipoUsuarioRepository.Atualizar(id, tipoUsuario);
+
+                _medicoRepository.Atualizar(id, medico);
                 return NoContent();
             }
             catch (Exception e)
@@ -120,7 +120,7 @@ namespace webapi.HealthClinic.tarde.Controllers
         {
             try
             {
-                return Ok(_tipoUsuarioRepository.BuscarPorId(id));
+                return Ok(_medicoRepository.BuscarPorId(id));
             }
             catch (Exception e)
             {

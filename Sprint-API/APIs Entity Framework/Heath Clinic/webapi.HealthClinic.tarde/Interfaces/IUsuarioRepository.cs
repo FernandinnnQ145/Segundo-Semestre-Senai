@@ -10,5 +10,7 @@ namespace webapi.HealthClinic.tarde.Interfaces
 
         Usuario BuscarPorEmailESenha(string email, string senha);
 
+        public List<Usuario> Listar();
+
     }
 }

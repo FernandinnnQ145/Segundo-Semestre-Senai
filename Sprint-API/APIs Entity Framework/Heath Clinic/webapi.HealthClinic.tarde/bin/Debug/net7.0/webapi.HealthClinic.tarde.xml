@@ -32,11 +32,110 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.EspecialidadeController.Post(webapi.HealthClinic.tarde.Domains.Especialidade)">
+            <summary>
+            EndPoint que acessa o metodo de Cadastrar uma nova especialidade 
+            </summary>
+            <param name="especialidade"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.EspecialidadeController.Get">
+            <summary>
+            EndPoint que acessa o metodo de listar todas especialidade
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.EspecialidadeController.Delete(System.Guid)">
+            <summary>
+            EndPoint que acessa o metodo de deletar a especialidade desejada
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.EspecialidadeController.Put(System.Guid,webapi.HealthClinic.tarde.Domains.Especialidade)">
+            <summary>
+            EndPoint que acessa o metodo de atualizar especialidade
+            </summary>
+            <param name="id"></param>
+            <param name="especialidade"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.EspecialidadeController.GetById(System.Guid)">
+            <summary>
+            EndPoint que acessa o metodo de buscar por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:webapi.HealthClinic.tarde.Controllers.LoginController.Login(webapi.HealthClinic.tarde.ViewModel.LoginViewModel)">
             <summary>
             EndPoint que acessa o metodo para se logar gerando um token
             </summary>
             <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.MedicoController.Post(webapi.HealthClinic.tarde.Domains.Medico)">
+            <summary>
+            EndPoint que acessa o metodo de Cadastrar um novo medico 
+            </summary>
+            <param name="medico"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.MedicoController.Get">
+            <summary>
+            EndPoint que acessa o metodo de listar todos os medicos
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:webapi.HealthClinic.tarde.Controllers.MedicoController.Delete(System.Guid)" -->
+        <member name="M:webapi.HealthClinic.tarde.Controllers.MedicoController.Put(System.Guid,webapi.HealthClinic.tarde.Domains.Medico)">
+            <summary>
+            EndPoint que acessa o metodo de atualizar medico
+            </summary>
+            <param name="id"></param>
+            <param name="medico"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.MedicoController.GetById(System.Guid)">
+            <summary>
+            EndPoint que acessa o metodo de buscar por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.PacienteController.Post(webapi.HealthClinic.tarde.Domains.Paciente)">
+            <summary>
+            Endpoint que acessa o metodo de cadastrar um novo paciente
+            </summary>
+            <param name="paciente"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.PacienteController.Get">
+            <summary>
+            EndPoint que acessa o metodo de listar todos os pacientes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.PacienteController.Delete(System.Guid)">
+            <summary>
+            Endpoint que acessa o metodo de deletar paciente
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.PacienteController.Put(System.Guid,webapi.HealthClinic.tarde.Domains.Paciente)">
+            <summary>
+            EndPoint que acessa o metodo de atualizar medico
+            </summary>
+            <param name="id"></param>
+            <param name="paciente"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.PacienteController.GetById(System.Guid)">
+            <summary>
+            EndPoint que acessa o metodo de buscar por id
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:webapi.HealthClinic.tarde.Controllers.TipoUsuarioController.Post(webapi.HealthClinic.tarde.Domains.TipoUsuario)">
@@ -86,6 +185,12 @@
             EndPoint que acessa o metodo de Cadastrar um novo usuario
             </summary>
             <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.UsuarioController.Get">
+            <summary>
+            EndPoint que lista todos os usuarios
+            </summary>
             <returns></returns>
         </member>
         <member name="T:webapi.HealthClinic.tarde.Migrations.Bd">

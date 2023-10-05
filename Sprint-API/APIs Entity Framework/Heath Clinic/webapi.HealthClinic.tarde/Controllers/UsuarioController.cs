@@ -65,5 +65,24 @@ namespace webapi.HealthClinic.tarde.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+
+        /// <summary>
+        /// EndPoint que lista todos os usuarios
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                return Ok(_usuarioRepository.Listar());
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

@@ -147,7 +147,7 @@ namespace webapi.event_.tarde.Controllers
             try
             {
                 List<PresencaEvento> lista = new List<PresencaEvento>();
-                lista = _presensaEventoRepository.ListarMinhas(id);
+                lista = _presencaEventoRepository.ListarMinhas(id);
                 return Ok(lista);
             }
             catch (Exception e)

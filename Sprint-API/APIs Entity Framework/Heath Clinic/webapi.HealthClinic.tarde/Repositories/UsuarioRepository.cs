@@ -88,6 +88,9 @@ namespace webapi.HealthClinic.tarde.Repositories
             }
         }
 
-        
+        public List<Usuario> Listar()
+        {
+            return _healthClinicContext.Usuario.ToList();
+        }
     }
 }
