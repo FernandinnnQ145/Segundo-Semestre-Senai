@@ -1,0 +1,5 @@
+Dotnet build
+
+Add-Migration Bd
+
+Update-Database ou Database-Update

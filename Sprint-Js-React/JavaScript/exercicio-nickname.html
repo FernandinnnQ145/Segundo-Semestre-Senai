@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Nickname</h1>
+
+    <form onsubmit="rodar()">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="Digite seu nome">
+        <br><br>
+
+
+        <label for="Nickname">Nickname</label>
+        <input type="text" id="Nickname" placeholder="Digite o nome do seu usuario">
+        <br><br>
+
+
+
+
+        <p>Ola, <strong id="NomeUsu">??</strong></p>
+
+        <button>Rodar</button>
+
+
+
+
+
+
+        <script>
+            function rodar() {
+                event.preventDefault();//Interrompe o subimit do formulario
+                let nome = document.getElementById("nome").value;
+                let nickname = document.getElementById("Nickname").value;
+
+                let xpto = document.getElementById("NomeUsu").innerHTML = nickname;
+            }
+
+
+
+        </script>
+</body>
+
+</html>
