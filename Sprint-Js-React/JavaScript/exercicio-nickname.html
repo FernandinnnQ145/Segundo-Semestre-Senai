@@ -17,15 +17,16 @@
         <br><br>
 
 
-        <label for="Nickname">Nickname</label>
-        <input type="text" id="Nickname" placeholder="Digite o nome do seu usuario">
+        <label for="nickname">Nickname</label>
+        <input type="text" id="nickname" placeholder="Digite o nome do seu usuario">
         <br><br>
 
 
 
 
-        <p>Ola, <strong id="NomeUsu">??</strong></p>
+        <span id="saudacao"></span>
 
+        <br><br>
         <button>Rodar</button>
 
 
@@ -37,9 +38,9 @@
             function rodar() {
                 event.preventDefault();//Interrompe o subimit do formulario
                 let nome = document.getElementById("nome").value;
-                let nickname = document.getElementById("Nickname").value;
+                let nickname = document.getElementById("nickname").value;
 
-                let xpto = document.getElementById("NomeUsu").innerHTML = nickname;
+                 document.getElementById("saudacao").innerText = `Ola ${nome.replace(nome, nickname)}`;
             }
 
 
