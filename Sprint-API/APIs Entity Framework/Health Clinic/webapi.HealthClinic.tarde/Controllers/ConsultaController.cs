@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿
+
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
@@ -80,7 +82,7 @@ namespace webapi.HealthClinic.tarde.Controllers
         /// </summary>
         /// <param name="id">id do paciente que deseja listar as consultas</param>
         /// <returns>status Code</returns>
-        [HttpGet("{id}")]
+        [HttpGet("ListarParaPaciente/{id}")]
         public IActionResult GetPaciente(Guid id)
         {
             try
@@ -94,11 +96,11 @@ namespace webapi.HealthClinic.tarde.Controllers
         }
 
         /// <summary>
-        /// Lista todas as consultas de um determinado paciente
+        /// Lista todas as consultas de um determinado médico
         /// </summary>
         /// <param name="id">id do médico que deseja listar as consultas</param>
-        /// <returns>status Code</returns>
-        [HttpGet("{id}")]
+        /// <returns>Status Code</returns>
+        [HttpGet("ListarParaMedico/{id}")]
         public IActionResult GetMedico(Guid id)
         {
             try

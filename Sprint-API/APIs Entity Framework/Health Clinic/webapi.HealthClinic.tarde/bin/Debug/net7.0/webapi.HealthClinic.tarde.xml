@@ -32,6 +32,82 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.ComentarioController.Post(webapi.HealthClinic.tarde.Domains.Comentario)">
+            <summary>
+            Cadastra um novo comentário
+            </summary>
+            <param name="comentario">Objeto cadastrado</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.ComentarioController.Get">
+            <summary>
+            Lista todos os comentários
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.ComentarioController.GetById(System.Guid)">
+            <summary>
+            Busca um comentário pelo seu id
+            </summary>
+            <param name="id">id do comentário que deseja buscar</param>
+            <returns>Status Code</returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.ComentarioController.Delete(System.Guid)">
+            <summary>
+            Deleta um comentário
+            </summary>
+            <param name="id">Id do comentário que deseja deletar</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.ConsultaController.Post(webapi.HealthClinic.tarde.Domains.Consulta)">
+            <summary>
+            Cadastra uma nova consulta
+            </summary>
+            <param name="consulta">Objeto cadastrado</param>
+            <returns>Status Code</returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.ConsultaController.Get">
+            <summary>
+            Lista todas as consultas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.ConsultaController.GetById(System.Guid)">
+            <summary>
+            Busca uma consulta pelo seu id
+            </summary>
+            <param name="id">id da consulta que deseja buscar</param>
+            <returns>Status Code</returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.ConsultaController.GetPaciente(System.Guid)">
+            <summary>
+            Lista todas as consultas de um determinado paciente
+            </summary>
+            <param name="id">id do paciente que deseja listar as consultas</param>
+            <returns>status Code</returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.ConsultaController.GetMedico(System.Guid)">
+            <summary>
+            Lista todas as consultas de um determinado médico
+            </summary>
+            <param name="id">id do médico que deseja listar as consultas</param>
+            <returns>Status Code</returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.ConsultaController.Delete(System.Guid)">
+            <summary>
+            Cancela uma consulta
+            </summary>
+            <param name="id">Id da consulta que deseja cancelar</param>
+            <returns>Status Code</returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.ConsultaController.Put(System.Guid,webapi.HealthClinic.tarde.Domains.Consulta)">
+            <summary>
+            Atualiza uma consulta
+            </summary>
+            <param name="id">Id da consulta que deseja atualizar</param>
+            <param name="consulta"></param>
+            <returns></returns>
+        </member>
         <member name="M:webapi.HealthClinic.tarde.Controllers.EspecialidadeController.Post(webapi.HealthClinic.tarde.Domains.Especialidade)">
             <summary>
             EndPoint que acessa o metodo de Cadastrar uma nova especialidade 
@@ -132,6 +208,34 @@
             <returns></returns>
         </member>
         <member name="M:webapi.HealthClinic.tarde.Controllers.PacienteController.GetById(System.Guid)">
+            <summary>
+            EndPoint que acessa o metodo de buscar por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.ProntuarioController.Post(webapi.HealthClinic.tarde.Domains.Prontuario)">
+            <summary>
+            Endpoint que acessa o metodo de cadastrar um novo paciente
+            </summary>
+            <param name="prontuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.ProntuarioController.Get">
+            <summary>
+            EndPoint que acessa o metodo de listar todos os pacientes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.ProntuarioController.Put(System.Guid,webapi.HealthClinic.tarde.Domains.Prontuario)">
+            <summary>
+            EndPoint que acessa o metodo de atualizar medico
+            </summary>
+            <param name="id"></param>
+            <param name="prontuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.HealthClinic.tarde.Controllers.ProntuarioController.GetById(System.Guid)">
             <summary>
             EndPoint que acessa o metodo de buscar por id
             </summary>

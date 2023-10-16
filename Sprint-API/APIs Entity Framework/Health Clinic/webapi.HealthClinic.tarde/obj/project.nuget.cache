@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3nat+YpdBEJNkCW9TTs/85Ff/qmHchIB5jDSlRTOQ9WTm+1ReC9HPMYHTZtMleZaQ9lYDmU2uji7VrZ0cbdtrA==",
+  "dgSpecHash": "RFOIO6DkSmmNW3LVLwmgfN9A9ndGGrHL14a1RkjqJE/db4eGdtXc0KDf/u4j+qIsRYEyCgPe08l9X36+drTFbg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\43869817801\\Desktop\\Segundo-Semestre-Senai\\Sprint-API\\APIs Entity Framework\\Heath Clinic\\webapi.HealthClinic.tarde\\webapi.HealthClinic.tarde.csproj",
+  "projectFilePath": "C:\\Users\\43869817801\\Desktop\\Segundo-Semestre-Senai\\Sprint-API\\APIs Entity Framework\\Health Clinic\\webapi.HealthClinic.tarde\\webapi.HealthClinic.tarde.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\43869817801\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\43869817801\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
