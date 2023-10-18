@@ -26,13 +26,21 @@ function calcular(e) {
         peso,
         imc,
         situacao: txtsituacao,
-        dataCadastro : `${dataCadastro.getDate()}/${dataCadastro.getMonth() + 1}/${dataCadastro.getFullYear()}`
+        dataCadastro: `${dataCadastro.getDate()}/${dataCadastro.getMonth() + 1}/${dataCadastro.getFullYear()}`
     }
-    listaPessoas.push(pessoa)
 
-    exibirDados()
+    //Insere uma pessoa no array
+    listaPessoas.push(pessoa);
+
+    //Exibe os dados
+    exibirDados();
 
 
+    // //Limpar os campos do formulario
+    // document.getElementById("nome").value=""
+    // document.getElementById("altura").value=""
+    // document.getElementById("peso").value=""
+    limparForm();
 }
 function calcularImc(peso, altura) {
     return peso / Math.pow(altura, 2);
@@ -81,9 +89,9 @@ function exibirDados() {
         linhas +=
             `<tr>
                 <td data-cell="nome">${oPessoa.nome}</td>
-                <td data-cell="altura">${oPessoa.altura}</td>
+                <td data-cell="altura">${oPessoa.altura.toFixed(2)}</td>
                 <td data-cell="peso">${oPessoa.peso}</td>
-                <td data-cell="valor do IMC">${oPessoa.imc}</td>
+                <td data-cell="valor do IMC">${oPessoa.imc.toFixed(2)}</td>
                 <td data-cell="classificação do IMC">${oPessoa.situacao}</td>
                 <td data-cell="data de cadastro">${oPessoa.dataCadastro}</td>
             </tr>`
@@ -91,4 +99,10 @@ function exibirDados() {
 
     document.getElementById('corpo-tabela').innerHTML = linhas;
 
+}
+
+function limparForm() {
+    let nome = document.getElementById("nome").value = "";
+    let altura = document.getElementById("altura").value = "";
+    let peso = document.getElementById("peso").value = "";
 }
