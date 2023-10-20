@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="chamarApi()">Chamar Api</button>
+
+    <script>
+
+
+
+        async function chamarApi() {
+            const url = "https://viacep.com.br/ws/09930270/json/"
+            try {
+                const promise = await fetch(url);
+                const endereco = await promise.json();
+
+                console.log(endereco);
+            } catch (e) {
+                console.log("Deu ruim na Api");
+            }
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+{
+  "imc": [
+    {
+      "id": 1,
+      "nome": "Fernando",
+      "altura": "1.80",
+      "peso": 74,
+      "situacao": "normal",
+      "imc": 22
+    }
+  ]
+}
