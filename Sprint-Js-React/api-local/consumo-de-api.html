@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <form onsubmit="Cadastrar(event)">
+
+
+        <label for="nome">Nome</label>
+        <input type="text" placeholder="digite seu nome" id="nome" />
+        <br /><br />
+
+
+        <label for="telefone">Telefone</label>
+        <input type="number" placeholder="digite seu telefone" id="telefone" />
+        <br /><br />
+
+
+        <label for="cep">CEP</label>
+        <input type="number" placeholder="digite o cep" id="cep" onblur="chamarApi()" autocomplete="off" />
+        <span id="not-found" style="color: red;"></span>
+        <br /><br />
+
+        <label for="rua">Rua</label>
+        <input type="text" placeholder=" ... " id="rua" />
+        <br /><br />
+
+
+        <label for="numero">Numero da residencia</label>
+        <input type="number" placeholder=" ... " id="numero" />
+        <br /><br />
+
+        <label for="bairro">Bairro</label>
+        <input type="text" placeholder=" ... " id="bairro" />
+        <br /><br />
+
+        <label for="cidade">Cidade</label>
+        <input type="text" placeholder=" ... " id="cidade" />
+        <br /><br />
+
+        <label for="estado">Estado</label>
+        <input type="text" placeholder=" ... " id="estado" />
+        <br /><br />
+
+        <button>Salvar contato</button>
+    </form>
+
+
+    <script>
+        const url = "http://localhost:3000/contatos"
+
+
+        async function Cadastrar(e) {
+            e.preventDefault(); //Captura o evento do subimit do form
+
+            const nome = document.getElementById("nome").value
+            const telefone = document.getElementById("telefone").value
+            const cep = document.getElementById("cep").value
+            const rua = document.getElementById("rua").value
+            const numero = document.getElementById("numero").value
+            const bairro = document.getElementById("bairro").value
+            const cidade = document.getElementById("cidade").value
+            const estado = document.getElementById("estado").value
+
+
+            const objDados = {
+                nome,
+                telefone,
+                cep,
+                rua,
+                numero,
+                bairro,
+                cidade,
+                estado
+            }
+            try {
+                const promise = await fetch(url, {
+                    body: JSON.stringify(objDados),
+                    headers: { "Content-Type": "application/json" },
+                    method: "post"
+                })
+
+                const retorno = promise.json();
+                console.log(retorno);
+            } catch (error) {
+                alert("Deu ruim" + error)
+            }
+        }
+
+
+
+        async function chamarApi() {
+            const cep = document.getElementById("cep").value
+            const url = `https://viacep.com.br/ws/${cep}/json/`
+            try {
+                const promise = await fetch(url);
+                const endereco = await promise.json();
+
+                exibirEndereco(endereco);
+
+                console.log(endereco);
+            } catch (e) {
+                console.log("Deu ruim na Api");
+
+
+
+                document.getElementById("not-found").innerText = "*Cep invalido";
+                retirarEndereco();
+
+            }
+
+        }
+
+        function retirarEndereco() {
+
+            document.getElementById("rua").value = ""
+            document.getElementById("numero").value = ""
+            document.getElementById("bairro").value = ""
+            document.getElementById("cidade").value = ""
+            document.getElementById("estado").value = ""
+        }
+
+        function exibirEndereco(endereco) {
+            document.getElementById("rua").value = endereco.logradouro
+            document.getElementById("bairro").value = endereco.bairro
+            document.getElementById("cidade").value = endereco.localidade
+            document.getElementById("estado").value = endereco.uf
+            document.getElementById("not-found").innerText = ""
+        }
+    </script>
+</body>
+
+</html>

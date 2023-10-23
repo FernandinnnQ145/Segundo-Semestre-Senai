@@ -1,12 +1,50 @@
 {
-  "imc": [
+  "contatos": [
     {
-      "id": 1,
+      "cep": "09930270",
+      "endereco": "Avenida Prestes Maia",
+      "bairro": "Centro",
+      "cidade": "Diadema",
+      "estado": "SP",
+      "id": 1
+    },
+    {
+      "cep": "09930270",
+      "endereco": "Avenida Prestes Maia",
+      "bairro": "Centro",
+      "cidade": "Diadema",
+      "estado": "SP",
+      "id": 2
+    },
+    {
+      "cep": "09930270",
+      "endereco": "Avenida Prestes Maia",
+      "bairro": "Centro",
+      "cidade": "Diadema",
+      "estado": "SP",
+      "id": 3
+    },
+    {
       "nome": "Fernando",
-      "altura": "1.80",
-      "peso": 74,
-      "situacao": "normal",
-      "imc": 22
+      "telefone": "5511993963235",
+      "cep": "09930270",
+      "rua": "Avenida Prestes Maia",
+      "numero": "1474",
+      "bairro": "Centro",
+      "cidade": "Diadema",
+      "estado": "SP",
+      "id": 4
+    },
+    {
+      "nome": "Fernando",
+      "telefone": "5511993963235",
+      "cep": "099",
+      "rua": "Avenida Prestes Maia",
+      "numero": "1474",
+      "bairro": "Centro",
+      "cidade": "Diadema",
+      "estado": "SP",
+      "id": 5
     }
   ]
 }
