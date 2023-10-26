@@ -1,0 +1,79 @@
+/* Bloco */
+.titulo{
+    display: flex;
+    flex-direction: column;
+    margin-top: 45px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    /* border: 1px solid black; */
+
+}
+
+/* elemento */
+.titulo__texto{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    text-transform: uppercase;
+    /* border: 1px solid red; */
+    letter-spacing: 6px;
+}
+
+.titulo__linha{
+    border: 2px solid #B51D44;
+    width: 210px;
+}
+
+
+
+
+.cards{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 100px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 250px;
+    border: 2px solid #821B47;
+    border-radius: 5px;
+    align-items: center;
+}
+
+
+
+.card__titulo{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    margin-top: 25px;
+    font-weight: bold;
+}
+
+.card__texto{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    width: 192px;
+    height: 72px;
+    margin-top: 20px;
+    line-height: 24px;
+
+}
+
+.card__conectar{
+    font-size: 18px;
+    color: #B51D44;
+    margin-top: 30px;
+    font-weight: bold;
+    line-height: 27px;
+    background-color: white;
+    border: none;
+}
+
+.card__conectar--disabled{
+    color: lightgray;
+}
