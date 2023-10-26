@@ -1,0 +1,38 @@
+{
+  "contatos": [
+    {
+      "nome": "",
+      "sobrenome": "",
+      "email": "",
+      "pais": "",
+      "ddd": "",
+      "telefone": "",
+      "cep": "032",
+      "rua": "",
+      "numero": "",
+      "complemento": "",
+      "bairro": "",
+      "cidade": "",
+      "estado": {},
+      "anotacoes": "",
+      "id": 1
+    },
+    {
+      "nome": "Fernando",
+      "sobrenome": "Quatrochi",
+      "email": "fernandinnn145@gmail.com",
+      "pais": "55",
+      "ddd": "11",
+      "telefone": "993963235",
+      "cep": "09930270",
+      "rua": "Avenida Prestes Maia",
+      "numero": "1474",
+      "complemento": "",
+      "bairro": "Centro",
+      "cidade": "Diadema",
+      "UF": "SP",
+      "anotacoes": "Muito legal :)",
+      "id": 2
+    }
+  ]
+}
