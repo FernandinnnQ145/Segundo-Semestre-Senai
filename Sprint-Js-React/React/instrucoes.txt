@@ -8,3 +8,7 @@ npm install create-react-app
 criar um projeto react
 npx create-react-app hello
 hello seria o nome da pasta entao pode ser alterado
+
+você pode entrar na pasta pelo terminal ou abrir a pasta do projeto (hello) diretamente no VSCode
+cd hello
+npm start
