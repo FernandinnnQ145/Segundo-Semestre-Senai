@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './HomePage.css'
 import MainContent from '../../Components/MainContent/MainContent';
 import Banner from '../../Components/Banner/Banner';
@@ -7,10 +7,21 @@ import ContactSection from '../../Components/ContactSection/ContactSection';
 import NextEvent from '../../Components/NextEvent/NextEvent';
 import Container from '../../Components/Container/Container';
 import Title from '../../Components/Title/Title';
+import axios from 'axios';
 const HomePage = () => {
-    useState(() =>{
+    useEffect(() =>{
         //Chamar a api
-        
+        async function getProximosEventos(){
+            try {
+                const promise = await axios.get("http://localhost:5000/api/Evento/ListarProximos");
+                console.log(promise.data)
+                setNextEvent(promise.data)
+            } catch (error) {
+                alert("Deu ruim na api")
+            }
+        }
+        getProximosEventos();
+        console.log("A home foi montada")
     }, [])
 
     //Fake mock - api mocada
@@ -41,9 +52,9 @@ const HomePage = () => {
                             {nextEvent.map((e) => {
                                 return(
                                     <NextEvent
-                                    title={e.title}
+                                    title={e.nomeEvento}
                                     description={e.descricao}
-                                    eventDate={e.data}
+                                    eventDate={e.dataEvento}
                                     idEvento={e.id} />
                                 )
                             })}
