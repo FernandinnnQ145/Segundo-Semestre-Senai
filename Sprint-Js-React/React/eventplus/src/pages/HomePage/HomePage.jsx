@@ -9,71 +9,54 @@ import Container from '../../Components/Container/Container';
 import Title from '../../Components/Title/Title';
 import axios from 'axios';
 const HomePage = () => {
-    useEffect(() =>{
-        //Chamar a api
-        async function getProximosEventos(){
-            try {
-                const promise = await axios.get("http://localhost:5000/api/Evento/ListarProximos");
-                console.log(promise.data)
-                setNextEvent(promise.data)
-            } catch (error) {
-                alert("Deu ruim na api")
-            }
+    useEffect(() => {
+      //chamar a api
+      async function getProximosEventos() {
+        try {
+          const promise = await axios.get(
+            "http://localhost:5000/api/Evento/ListarProximos"
+          );
+          console.log(promise.data);
+          setNextEvents(promise.data);
+        } catch (error) {
+          console.error("Erro : " + error);
+          alert("Erro ao carregar os eventos");
         }
-        getProximosEventos();
-        console.log("A home foi montada")
-    }, [])
-
-    //Fake mock - api mocada
-    const [nextEvent, setNextEvent] = useState([
-        {id: 1, title: "EventoX", descricao: "Evento de Sql", data:"10/11/2023" },
-        {id: 2, title: "EventoY", descricao: "Evento de C#", data:"19/11/2023" }
-    ])
-
-
-
+      }
+  
+      getProximosEventos();
+      console.log("A HOME FOI MONTADA!")
+    }, []);
+  
+    // fake mock - api mocada
+    const [nextEvents, setNextEvents] = useState([]);
+  
     return (
-        
-
-
-
-        <MainContent>
-            <Banner />
-
-            <section className='proximos-eventos'>
-
-                <Container>
-                    <Title
-                    titleText={"Proximos Eventos"}/>
-                    <div className="events-box">
-
-
-                        
-                            {nextEvent.map((e) => {
-                                return(
-                                    <NextEvent
-                                    title={e.nomeEvento}
-                                    description={e.descricao}
-                                    eventDate={e.dataEvento}
-                                    idEvento={e.id} />
-                                )
-                            })}
-
-                          
-                        
-                       
-
-                    </div>
-
-                </Container>
-
-            </section>
-
-
-            <VisionSection />
-            <ContactSection />
-        </MainContent>
+      <MainContent>
+        <Banner />
+        <section className="proximos-eventos">
+          <Container>
+            <Title titleText={"Próximos Eventos"} />
+  
+            <div className="events-box">
+              {nextEvents.map((event) => (
+                <NextEvent
+                  key={event.idEvento}
+                  title={event.nomeEvento}
+                  description={event.descricao}
+                  eventDate={event.dataEvento}
+                  idEvento={event.idEvento}
+                />
+              ))}
+            </div>
+          </Container>
+          <VisionSection />
+          <ContactSection />
+        </section>
+      </MainContent>
     );
-};
-
-export default HomePage;
+  };
+  
+  export default HomePage;
+  
+  
