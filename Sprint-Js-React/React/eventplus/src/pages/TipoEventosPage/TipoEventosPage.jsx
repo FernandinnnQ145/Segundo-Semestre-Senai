@@ -11,6 +11,7 @@ import { Button } from "../../Components/FormComponents/FormComponents";
 import api from "../../Services/Service";
 import TableTp from "./TableTp/TableTp";
 import Notification from "../../Components/Notification/Notification";
+import Spinner from "../../Components/Spinner/Spinner";
 
 const TipoEventosPage = () => {
 
@@ -19,7 +20,8 @@ const TipoEventosPage = () => {
     const [frmEdit, setFrmEdit] = useState(false);
     const [titulo, setTitulo] = useState("");
     const [notifyUser, setNotifyUser] = useState({});
-
+    const [idEvento, setIdEvento] = useState(null)
+    const [showSpinner, setShowSpinner] = useState(false);
 
 
 
@@ -28,6 +30,7 @@ const TipoEventosPage = () => {
     useEffect(() => {
         //chamar a api
         async function getListarTipos() {
+            setShowSpinner(true)
             try {
                 const promise = await api.get(
                     "/TiposEvento"
@@ -37,6 +40,7 @@ const TipoEventosPage = () => {
                 console.error("Erro : " + error);
                 alert("Erro ao carregar os tipos de eventos");
             }
+            setShowSpinner(false)
         }
 
         getListarTipos();
@@ -47,7 +51,14 @@ const TipoEventosPage = () => {
         e.preventDefault()
 
         if (titulo.trim().length < 3) {
-            alert("O titulo deve ter no minimo 3 caracteres")
+            setNotifyUser({
+                titleNote: "Aviso",
+                textNote: `Ttitulo deve possuir mais de 3 caracteres`,
+                imgIcon: "warning",
+                imgAlt:
+                    "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
+                showMessage: true,
+            });
             return;
         }
 
@@ -58,9 +69,9 @@ const TipoEventosPage = () => {
                 textNote: `Cadastrado com sucesso!`,
                 imgIcon: "success",
                 imgAlt:
-                  "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
+                    "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
                 showMessage: true,
-              });
+            });
             console.log(retorno.data);
             setTitulo(""); //Limpa a variavel
             const retornoGet = await api.get("/TiposEvento")
@@ -74,16 +85,45 @@ const TipoEventosPage = () => {
     }
 
     //Atualizacao dos dados
-    function handleUpdate() {
-        alert("Bora atualizar");
+    async function handleUpdate(e) {
+        e.preventDefault();
+
+        try {
+            const retorno = await api.put('/TiposEvento/' + idEvento, {
+                titulo
+            })
+            
+            const retornoGet = await api.get("/TiposEvento")
+            setTipoEventos(retornoGet.data)
+            setTitulo(""); //Limpa a variavel
+            setIdEvento(null)
+            setFrmEdit(false)
+
+        } catch (error) {
+            alert("Deu ruim")
+        }
     }
 
     function editActionAbort() {
-
+        setFrmEdit(false);
+        setTitulo("");
+        setIdEvento(null);
     }
 
-    function showUpdateForm() {
-        alert("Mostrando a tela de update")
+    async function showUpdateForm(idElemento) {
+        setFrmEdit(true);
+        //Fazer um get para pegar os dados
+        
+        try {
+            const retorno = await api.get('/TiposEvento/'+ idElemento)
+            setTitulo(retorno.data.titulo)
+            setIdEvento(retorno.data.idTipoEvento)
+        } catch (error) {
+            alert("Nao foi possivel mostrar a tela de edicao. Tente novamente")
+            console.log(error);
+        }
+        
+        
     }
 
 
@@ -101,9 +141,9 @@ const TipoEventosPage = () => {
                 textNote: `Deletado com sucesso!`,
                 imgIcon: "success",
                 imgAlt:
-                  "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
+                    "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
                 showMessage: true,
-              });
+            });
         } catch (error) {
             console.log("Erro ao excluir");
         }
@@ -120,7 +160,8 @@ const TipoEventosPage = () => {
 
 
         <MainContent>
-            <Notification {...notifyUser} setNotifyUser={setNotifyUser}/>
+            <Notification {...notifyUser} setNotifyUser={setNotifyUser} />
+            { showSpinner ? <Spinner/> : null}
             {/* CADASTRO */}
             <section className="cadastro-evento-section">
                 <Container>
@@ -161,9 +202,43 @@ const TipoEventosPage = () => {
 
                                 </>)
                                 :
-                                (<p>Tela de Edição</p>)}
+                                (<>
+
+                                    <Input
+                                        id="titulo"
+                                        placeholder="Titulo"
+                                        name="titulo"
+                                        type="text"
+                                        required="required"
+                                        value={titulo}
+                                        manipulationFunction={(e) => {
+                                            setTitulo(e.target.value)
+                                        }}
+                                    />
+
+                                    <div className="buttons-editbox">
+                                        <Button 
+                                        textButton="Atualizar"
+                                        type="subimit"
+                                        name="atualizar"
+                                        id="atualizar"
+                                        addidionalClass="button-component--middle"
+                                        />
 
 
+                                        <Button
+                                        textButton="Cancelar"
+                                        type="button"
+                                        name="cancelar"
+                                        id="cancelar"
+                                        manipulationFunction={editActionAbort}
+                                        addidionalClass="button-component--middle"
+                                        />
+                                    </div>
+
+                                </>)
+
+                            }
                             {/* Atualizar */}
 
                             {/* <Input
