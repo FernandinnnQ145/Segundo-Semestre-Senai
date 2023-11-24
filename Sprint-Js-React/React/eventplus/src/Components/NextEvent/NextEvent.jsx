@@ -1,6 +1,6 @@
 import React from "react";
 import "./NextEvent.css";
-import dateFormatDbToView from "../../Utils/stringFunction";
+import {dateFormatDbToView} from "../../Utils/stringFunction";
 import { Tooltip } from 'react-tooltip'
 
 //new Date(eventDate).toLocaleDateString()
