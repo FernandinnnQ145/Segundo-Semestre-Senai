@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './HomePage.css'
 import MainContent from '../../Components/MainContent/MainContent';
 import Banner from '../../Components/Banner/Banner';
@@ -8,7 +8,9 @@ import NextEvent from '../../Components/NextEvent/NextEvent';
 import Container from '../../Components/Container/Container';
 import Title from '../../Components/Title/Title';
 import api from '../../Services/Service';
+import { UserContext } from '../../context/AuthContext';
 const HomePage = () => {
+  const {userData} =useContext(UserContext)
     useEffect(() => {
       //chamar a api
       async function getProximosEventos() {
