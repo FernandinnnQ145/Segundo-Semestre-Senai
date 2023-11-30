@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ImageIllustrator from "../../Components/ImageIllustrator/ImageIllustrator"
 import logo from "../../assets/images/logo-pink.svg";
 import { Input } from '../../Components/FormComponents/FormComponents';
@@ -6,16 +6,20 @@ import { Button } from '../../Components/FormComponents/FormComponents';
 import loginImage from "../../assets/images/login.svg";
 import api from "../../Services/Service";
 import "./LoginPage.css";
-import { UserContext ,UserDecodeToken } from "../../context/AuthContext";
+import { UserContext, UserDecodeToken } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 
 const LoginPage = () => {
 
-    const [user, setUser] = useState({ email: "fe@adimin.com", senha: "123456" })
-    const {userData, setUserData} = useContext(UserContext)
+    const navigate = useNavigate()
+    const [user, setUser] = useState({ email: "", senha: "" })
+    const { userData, setUserData } = useContext(UserContext)
 
 
-    const{} = useContext(UserContext)
+    useEffect(()=>{
+        if(userData.name) navigate("/")
+    }, [userData])
 
     async function handleSubimit(e) {
         e.preventDefault();
@@ -27,17 +31,18 @@ const LoginPage = () => {
                     senha: user.senha
                 });
 
-                
+
 
                 const userFullToken = UserDecodeToken(promise.data.token)
-                
+
                 setUserData(userFullToken)
                 console.log(userData);
-                localStorage.setItem("token", userFullToken)
+                localStorage.setItem("token", JSON.stringify(userFullToken))
+                navigate("/");//Manda usuario para home
 
 
-            } 
-            
+            }
+
             catch (error) {
                 console.log(error);
             }
@@ -45,7 +50,7 @@ const LoginPage = () => {
         else {
             alert("Preencha os campos corretamente")
         }
-        
+
     }
 
 
