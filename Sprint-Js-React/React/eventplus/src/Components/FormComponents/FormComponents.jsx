@@ -51,7 +51,8 @@ export const Select = ({
     required,
     addidionalClass,
     manipulationFunction,
-    defaultValue
+    defaultValue,
+    mapOption
 }) => {
     return (
         <select
@@ -65,9 +66,7 @@ export const Select = ({
         >
 
             <option value="">Selecione</option>
-            {dados.map((opt) =>{
-                return <option key={opt.idTipoEvento} value={opt.idTipoEvento}>{opt.titulo}</option>
-            })}
+            {dados.map(mapOption)}
             
             
         </select>

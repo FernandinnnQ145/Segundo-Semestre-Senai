@@ -36,7 +36,7 @@ const EventosPage = () => {
             try {
                 const promise = await api.get(
                     "/Evento"
-                
+
                 );
                 const promesa = await api.get(
                     "/TiposEvento"
@@ -67,7 +67,7 @@ const EventosPage = () => {
                 idTipoEvento: idTipoEvento,
                 idInstituicao
             })
-            
+
             const retornoGet = await api.get("/Evento")
             setEventos(retornoGet.data)
             setNotifyUser({
@@ -101,12 +101,12 @@ const EventosPage = () => {
         }
 
         try {
-            const retorno = await api.post("/Evento", { 
-                nomeEvento: nome, 
-                descricao: descricao, 
-                idTipoEvento: idTipoEvento, 
-                dataEvento: data, 
-                idInstituicao: idInstituicao 
+            const retorno = await api.post("/Evento", {
+                nomeEvento: nome,
+                descricao: descricao,
+                idTipoEvento: idTipoEvento,
+                dataEvento: data,
+                idInstituicao: idInstituicao
             })
             setNotifyUser({
                 titleNote: "Sucesso",
@@ -126,7 +126,7 @@ const EventosPage = () => {
         }
     }
 
-    function ResetForm(){
+    function ResetForm() {
         setNome("");
         setIdEvento("");
         setData("");
@@ -141,15 +141,15 @@ const EventosPage = () => {
     async function showUpdateForm(idElemento) {
         setFrmEdit(true);
         //Fazer um get para pegar os dados
-        
-        try {
-            const retorno = await api.get('/Evento/'+ idElemento)
 
-            
+        try {
+            const retorno = await api.get('/Evento/' + idElemento)
+
+
             setNome(retorno.data.nomeEvento)
             setDescricao(retorno.data.descricao)
             setIdTipoEvento(retorno.data.idTipoEvento)
-            setData(retorno.data.dataEvento.substr(0,10))
+            setData(retorno.data.dataEvento.substr(0, 10))
             setIdEvento(retorno.data.idEvento)
         } catch (error) {
             alert("Nao foi possivel mostrar a tela de edicão. Tente novamente")
@@ -244,14 +244,17 @@ const EventosPage = () => {
 
                                     {/* Tipo Evento */}
                                     <Select
-                                     id={"id"}
-                                     name={"tipo"}
-                                     required={"required"}
-                                     dados={tipoEvento}
-                                     defaultValue={idTipoEvento}
-                                     manipulationFunction={(e) =>{
-                                        setIdTipoEvento(e.target.value)
-                                     }}
+                                        id={"id"}
+                                        name={"tipo"}
+                                        required={"required"}
+                                        dados={tipoEvento}
+                                        mapOption={(opt) => {
+                                            return <option key={opt.idTipoEvento} value={opt.idTipoEvento}>{opt.titulo}</option>
+                                        }}
+                                        defaultValue={idTipoEvento}
+                                        manipulationFunction={(e) => {
+                                            setIdTipoEvento(e.target.value)
+                                        }}
                                     />
 
 
@@ -321,14 +324,14 @@ const EventosPage = () => {
 
                                     {/* Tipo Evento */}
                                     <Select
-                                     id={"id"}
-                                     name={"tipo"}
-                                     required={"required"}
-                                     dados={tipoEvento}
-                                     defaultValue={idTipoEvento}
-                                     manipulationFunction={(e) =>{
-                                        setIdTipoEvento(e.target.value)
-                                     }}
+                                        id={"id"}
+                                        name={"tipo"}
+                                        required={"required"}
+                                        dados={tipoEvento}
+                                        defaultValue={idTipoEvento}
+                                        manipulationFunction={(e) => {
+                                            setIdTipoEvento(e.target.value)
+                                        }}
                                     />
 
 
