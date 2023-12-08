@@ -25,6 +25,9 @@ const EventosAlunoPage = () => {
   const [tipoEvento, setTipoEvento] = useState("1"); //código do tipo do Evento escolhido
   const [showSpinner, setShowSpinner] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [descricao, setDescricao] = useState("");
+  const [idEvento, setIdEvento] = useState("")
+  const [comentario, setComentario] = useState("")
 
   // recupera os dados globais do usuário
   const { userData, setUserData } = useContext(UserContext);
@@ -97,17 +100,22 @@ const EventosAlunoPage = () => {
   }
 
   //Ler um comentario
-  async function loadMyComentary(idComentary) {
+  async function loadMyComentary() {
+    const promiseComentario = await api.get(`/ComentariosEvento/BuscarPorIdUsuario?idUsuario=${userData.userId}&idEvento=${idEvento}`)
+    setComentario(promiseComentario.data.descricao)
+    console.log(promiseComentario);
     alert("Carregar um comentario")
   }
 
   //Cadastar comentario
-  async function postMyComentary(idComentary) {
-    alert("Cadastrar o comentario")
+  async function postMyComentary() {
+    
+
   }
 
-  const showHideModal = () => {
+  const showHideModal = (idEvento) => {
     setShowModal(showModal ? false : true);
+    setIdEvento(idEvento)
   };
 
 
@@ -187,6 +195,7 @@ const EventosAlunoPage = () => {
           fnGet={loadMyComentary}
           fnPost={postMyComentary}
           fnDelete={commentaryRemove}
+          comentaryText={comentario}
         />
       ) : null}
     </>

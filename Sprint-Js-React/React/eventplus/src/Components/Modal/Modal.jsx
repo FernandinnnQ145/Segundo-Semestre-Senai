@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import trashDelete from "../../assets/images/trash-delete-red.png";
 
 import { Button, Input } from "../FormComponents/FormComponents";
@@ -6,7 +6,7 @@ import "./Modal.css";
 
 const Modal = ({
   modalTitle = "Feedback",
-  comentaryText = "Não informado. Não informado. Não informado.",
+  comentaryText = "Não informado.",
   userId = null,
   showHideModal = false,
   fnGet = null,
@@ -14,6 +14,10 @@ const Modal = ({
   fnDelete = null
 
 }) => {
+
+ useEffect(() => {
+  fnGet()
+ }, [])
 
   return (
     <div className="modal">
