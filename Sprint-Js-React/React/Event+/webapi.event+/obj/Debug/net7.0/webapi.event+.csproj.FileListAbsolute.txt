@@ -778,3 +778,6 @@ C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-Js-React\React\Event+
 C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-Js-React\React\Event+\webapi.event+\obj\Debug\net7.0\webapi.event+.pdb
 C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-Js-React\React\Event+\webapi.event+\obj\Debug\net7.0\webapi.event+.genruntimeconfig.cache
 C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-Js-React\React\Event+\webapi.event+\obj\Debug\net7.0\ref\webapi.event+.dll
+C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-Js-React\React\Event+\webapi.event+\bin\Debug\net7.0\Microsoft.Azure.CognitiveServices.ContentModerator.dll
+C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-Js-React\React\Event+\webapi.event+\bin\Debug\net7.0\Microsoft.Rest.ClientRuntime.dll
+C:\Users\43869817801\Desktop\Segundo-Semestre-Senai\Sprint-Js-React\React\Event+\webapi.event+\bin\Debug\net7.0\Microsoft.Rest.ClientRuntime.Azure.dll
